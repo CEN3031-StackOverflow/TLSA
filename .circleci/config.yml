@@ -15,7 +15,7 @@
 #           - run: npm start
 #           - run: mocha server.test.js
 
-version: 2.1
+version: 2.3
 jobs:
   build:
     working_directory: ~/repo
