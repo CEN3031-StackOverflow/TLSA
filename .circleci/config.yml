@@ -23,7 +23,7 @@ jobs:
       - image: circleci/node:10.16.3
     steps:
       - checkout
-      -run:
+      - run:
           name: Install Mocha
           command: "npm install -g mocha"
       - run:
