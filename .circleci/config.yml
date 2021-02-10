@@ -15,7 +15,9 @@
 #           - run: npm start
 #           - run: mocha server.test.js
 
-version: 2.3
+version: 2.1
+orbs:
+  node: circleci/node@4.1.0
 jobs:
   build:
     working_directory: ~/repo
@@ -24,8 +26,11 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Start NPM
-          command: "npm start"
+          name: Mocha Install
+          command: "npm install -g mocha"
+      - run:
+          name: NPM Update
+          command: "npm install"
       - run: 
           name: Tests
           command: "mocha server.test.js"
