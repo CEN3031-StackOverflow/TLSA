@@ -24,11 +24,11 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Install Mocha
-          command: "npm install -g mocha"
-      - run:
           name: Update NPM
           command: "npm install"
+      - run:
+          name: Install Mocha
+          command: "npm install -g mocha"
       - run: 
           name: Tests
           command: "mocha server.test.js"
