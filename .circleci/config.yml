@@ -35,10 +35,11 @@ jobs:
           name: Install Mocha
           command: "sudo npm install -g mocha"
      
-      # #starting npm 
-      # - run: 
-      #     name: Start NPM
-      #     command: "npm start"
+      #starting npm 
+      - run: 
+          name: Start NPM
+          command: "npm start"
+          background: true
       
       #running mocha tests
       - run: 
