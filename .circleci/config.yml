@@ -31,6 +31,9 @@ jobs:
       - run:
           name: NPM Update
           command: "sudo npm install"
+      - run:
+          name: NPM Start
+          command: "npm start"
       - run: 
           name: Tests
           command: "mocha server.test.js"
