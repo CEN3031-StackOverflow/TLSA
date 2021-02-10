@@ -18,17 +18,30 @@
 version: 2.3
 jobs:
   build:
-    working_directory: ~/repo
+    working_directory: ~/repo/TDD-Assignment
     docker:
       - image: circleci/node:10.16.3
     steps:
-      - checkout
+      - checkout:
+          path: ~/repo
+
+      #installing npm 
       - run:
           name: Update NPM
           command: "npm install"
+      
+      #installing mocha
       - run:
           name: Install Mocha
-          command: "npm install -g mocha"
+          command: "sudo npm install -g mocha"
+     
+      #starting npm 
+      - run: 
+          name: Start NPM
+          command: "npm start"
+          background: true
+      
+      #running mocha tests
       - run: 
           name: Tests
           command: "mocha server.test.js"
