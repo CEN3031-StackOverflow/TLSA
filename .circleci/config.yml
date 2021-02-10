@@ -27,10 +27,10 @@ jobs:
       - checkout
       - run:
           name: Mocha Install
-          command: "npm install -g mocha"
+          command: "sudo npm install -g mocha"
       - run:
           name: NPM Update
-          command: "npm install"
+          command: "sudo npm install"
       - run: 
           name: Tests
           command: "mocha server.test.js"
