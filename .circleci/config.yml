@@ -23,7 +23,6 @@ jobs:
       - image: circleci/node:10.16.3
     steps:
       - checkout
-        path: ~/repo
       - run:
           name: Update NPM
           command: "npm install"
