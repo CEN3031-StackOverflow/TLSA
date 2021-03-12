@@ -42,7 +42,14 @@ jobs:
           background: true
       
       #running mocha tests
-      - run: 
+      #- run: 
+      #    name: Tests
+      #    command: "mocha server.test.js"
+  run:
+    working_directory: ~/repo/TDD-Assignment
+    docker:
+      - image: circleci/node:10.16.3
+    steps:
+      - run:
           name: Tests
           command: "mocha server.test.js"
-    
