@@ -15,7 +15,7 @@
 #           - run: npm start
 #           - run: mocha server.test.js
 
-version: 2.3
+version: 2
 jobs:
   build:
     working_directory: ~/repo/TDD-Assignment
@@ -40,12 +40,8 @@ jobs:
           name: Start NPM
           command: "npm start"
           background: true
-  test:
-    working_directory: ~/repo/TDD-Assignment
-    docker:
-      -image: circleci/node:10.16.3
-    test:
-      #running mocha tests
+          
+          
       - run: 
           name: Tests
           command: "mocha server.test.js"
