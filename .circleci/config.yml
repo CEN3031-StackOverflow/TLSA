@@ -40,9 +40,17 @@ jobs:
           name: Start NPM
           command: "npm start"
           background: true
-      
+  test:
+    working_directory: ~/repo/TDD-Assignment
+    docker:
+      -image: circleci/node:10.16.3
+    test:
       #running mocha tests
       - run: 
           name: Tests
           command: "mocha server.test.js"
-    
+          
+workflows:
+  build:
+    jobs:
+      - build
