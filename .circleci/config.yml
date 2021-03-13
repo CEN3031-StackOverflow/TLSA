@@ -51,6 +51,7 @@ jobs:
           command: "mocha server.test.js"
           
 workflows:
+  version: 2.3
   build:
     jobs:
       - build
