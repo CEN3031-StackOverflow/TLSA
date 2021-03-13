@@ -16,40 +16,44 @@
 #           - run: mocha server.test.js
 
 version: 2.3
-jobs:
+workflows:
   build:
-    working_directory: ~/repo/TDD-Assignment
-    docker:
-      - image: circleci/node:10.16.3
-    steps:
-      - checkout:
-          path: ~/repo
+    jobs:
+      build:
+        working_directory: ~/repo/TDD-Assignment
+        docker:
+          - image: circleci/node:10.16.3
+        steps:
+          - checkout:
+              path: ~/repo
 
       #installing npm 
-      - run:
-          name: Update NPM
-          command: "npm install"
+          - run:
+              name: Update NPM
+              command: "npm install"
       
       #installing mocha
-      - run:
-          name: Install Mocha
-          command: "sudo npm install -g mocha"
+          - run:
+              name: Install Mocha
+              command: "sudo npm install -g mocha"
      
       #starting npm 
-      - run: 
-          name: Start NPM
-          command: "npm start"
-          background: true
+          - run: 
+              name: Start NPM
+              command: "npm start"
+              background: true
       
       #running mocha tests
       #- run: 
       #    name: Tests
       #    command: "mocha server.test.js"
   run:
-    working_directory: ~/repo/TDD-Assignment
-    docker:
-      - image: circleci/node:10.16.3
-    steps:
-      - run:
-          name: Tests
-          command: "mocha server.test.js"
+    jobs:
+      run:
+        working_directory: ~/repo/TDD-Assignment
+        docker:
+          - image: circleci/node:10.16.3
+        steps:
+          - run:
+            name: Tests
+            command: "mocha server.test.js"
