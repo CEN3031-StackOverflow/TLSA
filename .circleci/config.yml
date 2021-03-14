@@ -15,7 +15,7 @@
 #           - run: npm start
 #           - run: mocha server.test.js
 
-version: 2.3
+version: 2
 jobs:
   build:
     working_directory: ~/repo/TDD-Assignment
@@ -40,9 +40,14 @@ jobs:
           name: Start NPM
           command: "npm start"
           background: true
-      
-      #running mocha tests
+          
+          
       - run: 
           name: Tests
           command: "mocha server.test.js"
-    
+          
+workflows:
+  version: 2
+  build:
+    jobs:
+      - build
