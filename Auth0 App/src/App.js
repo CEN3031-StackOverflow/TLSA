@@ -1,6 +1,6 @@
 import { 
   Route, 
-  Switch, 
+  //Switch, 
   Redirect, 
   BrowserRouter as Router
 } from 'react-router-dom';
@@ -9,7 +9,11 @@ import React from 'react';
 import './App.css';
 import LogoutButton from './components/LogoutButton';
 import Profile from './components/Profile';
+import CreateEvent from './views/CreateEvent';
+import Events from './views/Events';
 import LandingPage from './views/LandingPage';
+import MyAccount from './views/MyAccount';
+import Search from './views/Search';
 import { useAuth0 } from '@auth0/auth0-react';
 
 function App() {
@@ -21,13 +25,17 @@ function App() {
     <>
       {/* Auth0 Setup from https://www.youtube.com/watch?v=MqczHS3Z2bc&list=LL&index=10 */}
       <Router>
-        <Route exact path="/">
-          <Redirect to="/LandingPage"/>
-        </Route>
-
+        <Route exact path="/"> <Redirect to="/LandingPage"/> </Route>
         <Route exact path="/LandingPage" render={(props) => <LandingPage {...props}/>}/>
-        <LogoutButton />
-        <Profile />
+        <Route exact path="/CreateEvent" render={(props) => <CreateEvent {...props}/>}/>
+        <Route exact path="/Events" render={(props) => <Events {...props}/>}/>
+        <Route exact path="/MyAccount" render={(props) => <MyAccount {...props}/>}/>
+        <Route exact path="/Search" render={(props) => <Search {...props}/>}/>
+        
+        <div>
+          <LogoutButton />  {/* Only shows up if the user is logged in. */}
+        </div>
+        
       </Router>
     </>
   );
