@@ -1,13 +1,13 @@
-import React from 'react';
-import NavBar from '../components/NavBar.js'
+import React from "react";
+import AppBar from "../components/AppBar.js";
 //import Logo from '../components/Logo.js';
 
 const Search = () => {
-    return (
+  return (
     <>
-        <h1>Search</h1>
+      <h1>Search</h1>
     </>
-    );
+  );
 };
 
 export default Search;
