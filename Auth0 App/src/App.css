@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #151C48;
+  font-family: Montserrat;
+  color: #f4ba00;
+}
+
+body {
+  padding: 2rem;
+}
+
+.btn{
+  color: #151C48;
+  background-color: #f4ba00;
+  border-radius: 15px;
+  padding: 15px;
+  font-family: Montserrat;
+  font-weight: 700;
+  text-align: center;
+  font-size: 30px;
+}
+
+.login-btn-position {
+  position: absolute;
+  top: 75vh; /* vh = viewport height, aka window height*/
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); 
+}
+
+.landing-header {
+  align-items: center;
+  font-family: Montserrat;
+  font-weight: 800;
+  font-size: 50px;
+  line-height: 75px;
+  text-align: left;
+  position: absolute;
+  top: 18vh;
+  left: 48vw;
+  padding: 0vw 10vw 0vw 0vw
+}
+
+.landing-logo img{
+  position:absolute;
+  top: 18vh;
+  right: 60vw;
+  width: 250px;
+}
