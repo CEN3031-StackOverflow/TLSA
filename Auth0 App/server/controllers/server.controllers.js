@@ -1,1 +1,1 @@
-const model = require('../models/server.model.js');
+const users = require('../models/server.users.js');
