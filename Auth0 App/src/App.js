@@ -6,8 +6,6 @@ import {
 } from "react-router-dom";
 
 import React from "react";
-import LogoutButton from "./components/LogoutButton";
-import Profile from "./components/Profile";
 import CreateEvent from "./views/CreateEvent";
 import Events from "./views/Events";
 import LandingPage from "./views/LandingPage";

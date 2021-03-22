@@ -62,3 +62,9 @@ body {
   float: left !important;
   margin-top: -15px !important;
 }
+
+.center {
+  margin: auto;
+  width: 10%;
+  padding: 10px;
+}
