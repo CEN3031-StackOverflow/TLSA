@@ -1,11 +1,12 @@
-const express = require('./config/express.js');
-const routes = require('./routes/server.routes.js');
-const config = require('./config/config.js')
-const mongoose = require('mongoose')
-const app = express.init();
+const express = require('express');
+const bodyParser = require('body-parser');
+const routes = require('./routes/server.routes');
+const config = require('./config/config');
+const mongoose = require('mongoose');
+const app = express();
 
 //connect to the database
-mongoose.connect(config.module.exports.db, { useNewUrlParser: true })
+mongoose.connect(config.db.uri, { useNewUrlParser: true })
   .then(() => console.log(`Database connected successfully`))
   .catch(err => console.log(err));
 
@@ -21,12 +22,17 @@ app.use((req, res, next) => {
 
 app.use(bodyParser.json());
 
-app.use('/api', routes);
+app.use('/server.routes', routes);
 
 app.use((err, req, res, next) => {
   console.log(err);
   next();
 });
+
+app.use((req, res, next) => {
+  res.send('TEST');
+});
+
 // Use env port or default
 const port = process.env.PORT || 5000;
 

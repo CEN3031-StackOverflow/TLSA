@@ -1,5 +1,6 @@
-const controllers = require('../controllers/server.controllers.js');
-const users = require('../models/server.users.js');
+const controllers = require('../controllers/server.controllers');
+const users = require('../models/server.users');
+const express = require('express');
 const router = express.Router();
 
 router.get('/users', (req, res, next) => {
@@ -8,3 +9,4 @@ router.get('/users', (req, res, next) => {
         .catch(next)
 });
 
+module.exports = router;

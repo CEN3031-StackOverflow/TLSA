@@ -1,12 +1,7 @@
 const mongoose = require('mongoose');
 const schema = mongoose.Schema;
 
-const UsersSchema = new Schema({
-    _id: {
-        type: ObjectID,
-        required: [true, 'The _id field is required']
-      },
-
+const UsersSchema = new schema({
     tenant: {
         type: String
     },
@@ -35,7 +30,7 @@ const UsersSchema = new Schema({
         type: String
     },
     points: {
-        type: Int32
+        type: Number
     }
 })
 
