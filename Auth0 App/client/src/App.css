@@ -4,13 +4,19 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background-color: #151C48;
+  /* background-color: #151C48; */
   font-family: Montserrat;
   color: #f4ba00;
 }
 
 body {
   padding: 2rem;
+  background-color: #151C48;
+}
+
+.body-other {
+  padding: 2rem;
+  background-color: white;
 }
 
 .btn{
@@ -50,4 +56,15 @@ body {
   top: 18vh;
   right: 60vw;
   width: 250px;
+}
+
+.appbar-logo {
+  float: left !important;
+  margin-top: -15px !important;
+}
+
+.center {
+  margin: auto;
+  width: 10%;
+  padding: 10px;
 }
