@@ -9,4 +9,14 @@ router.get('/users', (req, res, next) => {
         .catch(next)
 });
 
+router.get('/users/:id', (req, res, next) =>{
+    users.findById(req.params.id)
+        .then(data => res.json(data))
+        .catch(next)
+});
+
+/*router.post('/users/:id', (req, res , next) => {
+    users.findByIdAndUpdate(req.params.id, req.body)
+});*/
+
 module.exports = router;
