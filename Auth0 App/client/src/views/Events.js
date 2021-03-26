@@ -34,15 +34,24 @@ const Events = () => {
           Create Event
         </button>
 
-        <div>
-          <input type="email" placeholder="user@gmail.com" id="email" />
-          <button onClick={showCal}>Load</button>
-          <h3>Your calendar:</h3>
-          <div id="calendarEmbedWrapper">
-            <iframe id="calendarEmbed" />
-            <div id="calendarEmbedBlocker">
-              <p>Please enter email and click load</p>
-            </div>
+        <div />
+        <button
+          style={{
+            color: "#151C48",
+            background: "#f4ba00",
+            fontWeight: "bold",
+          }}
+          onClick={showCal}
+        >
+          Load
+        </button>
+        <div id="calendarEmbedWrapper">
+          <iframe
+            style={{ width: "100%", height: "600px" }}
+            id="calendarEmbed"
+          />
+          <div id="calendarEmbedBlocker">
+            <p>Please enter email and click load</p>
           </div>
         </div>
       </div>
