@@ -20,31 +20,34 @@ const Events = () => {
   return (
     <div>
       <AppBar />
-      <h1 style={{ textAlign: "center" }}>Upcoming Events</h1>
-      <br />
+      <h1 style={{ textAlign: "center" }}>Events Schedule</h1>
       <div>
-        <button
-          style={{
-            color: "#151C48",
-            background: "#f4ba00",
-            fontWeight: "bold",
-          }}
-          // {*/button not linked to route */}
-        >
-          Create Event
-        </button>
+        <a href="/CreateEvent">
+          <button
+            style={{
+              color: "#151C48",
+              background: "#f4ba00",
+              fontWeight: "bold",
+            }}
+            // {*/button not linked to route */}
+          >
+            Create Event
+          </button>
+        </a>
 
-        <div>
-          <input type="email" placeholder="user@gmail.com" id="email" />
-          <button onClick={showCal}>Load</button>
-          <h3>Your calendar:</h3>
+          <text> &emsp; &emsp; &emsp;</text>
+
+          <button  style={{ color: "#151C48", background: "#f4ba00", fontWeight: "bold",}} onClick={showCal}>
+            Load Updated Calendar
+          </button>
+
+          <h3>  </h3>
+
           <div id="calendarEmbedWrapper">
-            <iframe id="calendarEmbed" />
+            <iframe id="calendarEmbed" width="1450vw" height="700vh"/>
             <div id="calendarEmbedBlocker">
-              <p>Please enter email and click load</p>
             </div>
           </div>
-        </div>
       </div>
     </div>
   );

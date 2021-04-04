@@ -18,9 +18,9 @@ const AppBar = (props) => {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto"></Nav>
           <Nav>
-            <Nav.Link href="#events">Events</Nav.Link>
-            <Nav.Link href="#search">Search</Nav.Link>
-            <Nav.Link href="#account">My Account</Nav.Link>
+            <Nav.Link href="/events">Events</Nav.Link>
+            <Nav.Link href="/search">Search</Nav.Link>
+            <Nav.Link href="/myaccount">My Account</Nav.Link>
             <LogoutButton />
           </Nav>
         </Navbar.Collapse>
