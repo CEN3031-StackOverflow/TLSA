@@ -1,10 +1,17 @@
 /* Make sure this is only accessible to admins!!! */
 
-import React from "react";
+import React, { useState } from 'react';
 import AppBar from "../components/AppBar";
 import { Form, Button, Row, Col } from "react-bootstrap";
 
 const CreateEvent = () => {
+  const [name, setName] = useState("");
+  const [date, setDate] = useState(0);
+  const [start, setStart] = useState("");
+  const [end, setEnd] = useState("");
+  const [location, setLocation] = useState("");
+  const [description, setDescription] = useState("");
+
   return (
     <>
       <AppBar />
@@ -18,7 +25,12 @@ const CreateEvent = () => {
             Event Name
           </Form.Label>
           <Col sm={6}>
-            <Form.Control type="event-name" placeholder="Event Name" />
+            <Form.Control
+              type="event-name"
+              placeholder="Event Name"
+              value={name}
+              onChange={e => setName(e.target.value)}
+              />
           </Col>
           <Col sm={2}></Col>
         </Form.Group>
@@ -29,7 +41,12 @@ const CreateEvent = () => {
             Date
           </Form.Label>
           <Col sm={6}>
-            <Form.Control type="date" placeholder="Date" />
+            <Form.Control
+              type="date"
+              placeholder="Date"
+              value={date}
+              onChange={e => setDate(e.target.value)}
+            />
           </Col>
           <Col sm={2}></Col>
         </Form.Group>
@@ -40,7 +57,12 @@ const CreateEvent = () => {
             Start Time
           </Form.Label>
           <Col sm={6}>
-            <Form.Control type="start-time" placeholder="Start Time" />
+            <Form.Control
+              type="start-time"
+              placeholder="Start Time"
+              value={start}
+              onChange={e => setStart(e.target.value)}
+            />
           </Col>
           <Col sm={2}></Col>  
         </Form.Group>
@@ -51,7 +73,12 @@ const CreateEvent = () => {
             End Time
           </Form.Label>
           <Col sm={6}>
-            <Form.Control type="end-time" placeholder="End Time" />
+            <Form.Control
+              type="end-time"
+              placeholder="End Time"
+              value={end}
+              onChange={e => setEnd(e.target.value)}
+            />
           </Col>
           <Col sm={2}></Col>
         </Form.Group>
@@ -62,7 +89,12 @@ const CreateEvent = () => {
             Location
           </Form.Label>
           <Col sm={6}>
-            <Form.Control type="location" placeholder="Location" />
+            <Form.Control
+              type="location"
+              placeholder="Location"
+              value={location}
+              onChange={e => setLocation(e.target.value)}
+            />
           </Col>
           <Col sm={2}></Col>
         </Form.Group>
@@ -78,6 +110,8 @@ const CreateEvent = () => {
               type="description"
               placeholder="Event Description"
               rows={3}
+              value={description}
+              onChange={e => setDescription(e.target.value)}
             />
           </Col>
           <Col sm={2}></Col>
