@@ -6,7 +6,9 @@ const mongoose = require('mongoose');
 const app = express();
 
 //connect to the database
-mongoose.connect(config.db.uri, { useNewUrlParser: true })
+mongoose.set('useFindAndModify', false);
+
+mongoose.connect(config.db.uri, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log(`Database connected successfully`))
   .catch(err => console.log(err));
 
