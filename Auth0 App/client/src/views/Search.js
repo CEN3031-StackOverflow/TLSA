@@ -1,6 +1,6 @@
 import React from "react";
 import AppBar from "../components/AppBar.js";
-import { Form, Button, Col, InputGroup, FormControl } from "react-bootstrap";
+import { Form, Col} from "react-bootstrap";
 
 const Search = () => {
   return (
