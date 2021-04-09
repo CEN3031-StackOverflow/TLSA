@@ -27,11 +27,7 @@ const MyAccount = () => {
 
           <div className="center">
             <button
-              style={{
-                color: "#151C48",
-                background: "#f4ba00",
-                fontWeight: "bold",
-              }}
+              className="btn-smaller"
               // {*/button not linked to route */}
             >
               Change Password

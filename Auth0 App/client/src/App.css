@@ -30,6 +30,17 @@ body {
   font-size: 30px;
 }
 
+.btn-smaller{
+  color: #151C48;
+  background-color: #f4ba00;
+  border-radius: 15px;
+  padding: 5px;
+  font-family: Montserrat;
+  font-weight: 700;
+  text-align: center;
+  font-size: 16px;
+}
+
 .login-btn-position {
   position: absolute;
   top: 75vh; /* vh = viewport height, aka window height*/
@@ -67,4 +78,51 @@ body {
   margin: auto;
   width: 10%;
   padding: 10px;
+<<<<<<< Updated upstream
+=======
+}
+
+.calendarEmbedWrapper {
+    width: 80%;
+    min-height: 300px;
+    margin-left: 10%;
+    position: relative;
+}
+.calendarEmbed,.calendarEmbedBlocker {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+.calendarEmbedBlocker {
+    background-color: #e15151;
+}
+.calendarEmbedBlocker p {
+    width: 50%;
+    margin-left: 25%;
+    margin-top: 19%;
+    text-align: center;
+    font-size: x-large;
+}
+
+.nav-menu {
+    font-family: Montserrat;
+    color: #f4ba00;
+    font-size: 25px;
+}
+
+.iframe-container {
+  overflow: hidden;
+  /* 16:9 aspect ratio */
+  padding-top: 56.25%;
+  position: relative;
+}
+
+.iframe-container iframe {
+   border: 0;
+   height: 100%;
+   left: 0;
+   position: absolute;
+   top: 0;
+   width: 100%;
+>>>>>>> Stashed changes
 }

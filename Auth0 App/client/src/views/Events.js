@@ -10,6 +10,7 @@ const Events = () => {
       <h1 style={{ textAlign: "center" }}>Upcoming Events</h1>
       <br />
       <div>
+<<<<<<< Updated upstream
         <button
           style={{
             color: "#151C48",
@@ -20,6 +21,26 @@ const Events = () => {
         >
           Create Event
         </button>
+=======
+        <a href="/CreateEvent">
+          <button className="btn-smaller">Create Event</button>
+        </a>
+
+        <text> &emsp; &emsp;</text>
+
+        <button className="btn-smaller" onClick={showCal}>
+          Load Updated Calendar
+        </button>
+
+        <h3> </h3>
+
+        <div id="calendarEmbedWrapper">
+          <div className="iframe-container">
+            <iframe id="calendarEmbed" width="1450vw" height="700vh" />
+          </div>
+          <div id="calendarEmbedBlocker"></div>
+        </div>
+>>>>>>> Stashed changes
       </div>
     </div>
   );
