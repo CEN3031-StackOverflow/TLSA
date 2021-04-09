@@ -106,7 +106,7 @@ const CreateEvent = () => {
         </Form.Group>
 
         <Form.Group as={Row} controlId="EventDate">
-          <Col sm={2}></Col>
+          {/* <Col sm={2}></Col> */}
           <Form.Label column sm={2}>
             Date
           </Form.Label>
