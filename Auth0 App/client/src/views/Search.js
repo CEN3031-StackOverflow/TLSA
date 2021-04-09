@@ -1,10 +1,6 @@
 import React from "react";
 import AppBar from "../components/AppBar.js";
-<<<<<<< Updated upstream
-import { Form, Button, Col, InputGroup, FormControl } from "react-bootstrap";
-=======
 import { Form, Col } from "react-bootstrap";
->>>>>>> Stashed changes
 
 const Search = () => {
   return (

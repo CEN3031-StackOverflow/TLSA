@@ -18,11 +18,6 @@ const AppBar = (props) => {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto"></Nav>
           <Nav>
-<<<<<<< Updated upstream:Auth0 App/src/components/AppBar.js
-            <Nav.Link href="#events">Events</Nav.Link>
-            <Nav.Link href="#search">Search</Nav.Link>
-            <Nav.Link href="#account">My Account</Nav.Link>
-=======
             <Nav.Link href="/events">
               <h4 className="nav-menu">Events</h4>
             </Nav.Link>
@@ -32,7 +27,6 @@ const AppBar = (props) => {
             <Nav.Link href="/myaccount">
               <h3 className="nav-menu">My Account</h3>
             </Nav.Link>
->>>>>>> Stashed changes:Auth0 App/client/src/components/AppBar.js
             <LogoutButton />
           </Nav>
         </Navbar.Collapse>

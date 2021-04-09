@@ -1,16 +1,10 @@
 /* Make sure this is only accessible to admins!!! */
 
-<<<<<<< Updated upstream
-import React from "react";
-=======
 import React, { useState } from "react";
->>>>>>> Stashed changes
 import AppBar from "../components/AppBar";
 import { Form, Button, Row, Col } from "react-bootstrap";
 
 const CreateEvent = () => {
-<<<<<<< Updated upstream
-=======
   const [name, setName] = useState("");
   const [date, setDate] = useState("");
   const [start, setStart] = useState("");
@@ -90,7 +84,6 @@ const CreateEvent = () => {
     });
   }
 
->>>>>>> Stashed changes
   return (
     <>
       <AppBar />
@@ -102,10 +95,6 @@ const CreateEvent = () => {
           <Form.Label column sm={2}>
             Event Name
           </Form.Label>
-<<<<<<< Updated upstream
-          <Col sm={10}>
-            <Form.Control type="event-name" placeholder="Event Name" />
-=======
           <Col sm={6}>
             <Form.Control
               type="event-name"
@@ -113,18 +102,10 @@ const CreateEvent = () => {
               value={name}
               onChange={(e) => setName(e.target.value)}
             />
->>>>>>> Stashed changes
           </Col>
         </Form.Group>
 
         <Form.Group as={Row} controlId="EventDate">
-<<<<<<< Updated upstream
-          <Form.Label column sm={2}>
-            Date
-          </Form.Label>
-          <Col sm={10}>
-            <Form.Control type="date" placeholder="Date" />
-=======
           <Col sm={2}></Col>
           <Form.Label column sm={2}>
             Date
@@ -136,7 +117,6 @@ const CreateEvent = () => {
               value={date}
               onChange={(e) => setDate(e.target.value)}
             />
->>>>>>> Stashed changes
           </Col>
         </Form.Group>
 
@@ -144,11 +124,6 @@ const CreateEvent = () => {
           <Form.Label column sm={2}>
             Start Time
           </Form.Label>
-<<<<<<< Updated upstream
-          <Col sm={10}>
-            <Form.Control type="start-time" placeholder="Start Time" />
-          </Col>
-=======
           <Col sm={6}>
             <Form.Control
               type="start-time"
@@ -158,17 +133,12 @@ const CreateEvent = () => {
             />
           </Col>
           <Col sm={2}></Col>
->>>>>>> Stashed changes
         </Form.Group>
 
         <Form.Group as={Row} controlId="EndTime">
           <Form.Label column sm={2}>
             End Time
           </Form.Label>
-<<<<<<< Updated upstream
-          <Col sm={10}>
-            <Form.Control type="end-time" placeholder="End Time" />
-=======
           <Col sm={6}>
             <Form.Control
               type="end-time"
@@ -176,7 +146,6 @@ const CreateEvent = () => {
               value={end}
               onChange={(e) => setEnd(e.target.value)}
             />
->>>>>>> Stashed changes
           </Col>
         </Form.Group>
 
@@ -184,10 +153,6 @@ const CreateEvent = () => {
           <Form.Label column sm={2}>
             Location
           </Form.Label>
-<<<<<<< Updated upstream
-          <Col sm={10}>
-            <Form.Control type="location" placeholder="Location" />
-=======
           <Col sm={6}>
             <Form.Control
               type="location"
@@ -195,7 +160,6 @@ const CreateEvent = () => {
               value={location}
               onChange={(e) => setLocation(e.target.value)}
             />
->>>>>>> Stashed changes
           </Col>
         </Form.Group>
 
@@ -209,36 +173,19 @@ const CreateEvent = () => {
               type="description"
               placeholder="Event Description"
               rows={3}
-<<<<<<< Updated upstream
-=======
               value={description}
               onChange={(e) => setDescription(e.target.value)}
->>>>>>> Stashed changes
             />
           </Col>
         </Form.Group>
-
-<<<<<<< Updated upstream
-        {/* Button has no function */}
-        <div className="center">
-          <button
-            className="btn"
-            style={{ marginLeft: "auto" }}
-            variant="primary"
-            type="submit"
-          >
-            Create
-          </button>
-        </div>
       </Form>
-=======
+
       <div className="center">
         <button className="btn" onClick={handleClick}>
           {" "}
           Create{" "}
         </button>
       </div>
->>>>>>> Stashed changes
     </>
   );
 };
