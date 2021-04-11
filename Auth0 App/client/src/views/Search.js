@@ -1,6 +1,6 @@
 import React from "react";
 import AppBar from "../components/AppBar.js";
-import { Form, Button, Col, InputGroup, FormControl } from "react-bootstrap";
+import { Form, Col } from "react-bootstrap";
 
 const Search = () => {
   return (
@@ -23,11 +23,8 @@ const Search = () => {
 
           <Col xs="auto" className="my-1">
             <button
-              style={{
-                color: "#151C48",
-                background: "#f4ba00",
-                fontWeight: "bold",
-              }}
+              className="btn-smaller"
+
               // {*/button not linked to route */}
             >
               Search
@@ -35,11 +32,7 @@ const Search = () => {
           </Col>
           <Col xs="auto" className="my-1">
             <button
-              style={{
-                color: "#151C48",
-                background: "#f4ba00",
-                fontWeight: "bold",
-              }}
+              className="btn-smaller"
               // {*/button not linked to route */}
             >
               Reset Points
