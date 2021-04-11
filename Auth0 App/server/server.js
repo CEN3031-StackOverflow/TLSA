@@ -26,11 +26,7 @@ app.use((req, res, next) => {
 
 app.use(bodyParser.json());
 
-<<<<<<< HEAD
 app.use('/api', routes);
-=======
-app.use("/api", routes);
->>>>>>> origin/main
 
 app.use((err, req, res, next) => {
   console.log(err);
