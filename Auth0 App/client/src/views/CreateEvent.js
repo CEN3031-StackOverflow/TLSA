@@ -14,11 +14,14 @@ const CreateEvent = () => {
 
   /* Google Calendar API Add Event Tutorial: https://www.youtube.com/watch?v=zaRUq1siZZo */
 
-  var gapi = window.gapi
-  var CLIENT_ID = "693133513733-l7kcttogcc3c2bkkt9m67v8kjrmfnvck.apps.googleusercontent.com";
-  var API_KEY = "AIzaSyCojPB4nfWrpOB9Bca4SnHGInatjYrwjjU";
-  var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"]
-  var SCOPES = "https://www.googleapis.com/auth/calendar.events"
+  var gapi = window.gapi;
+  // If need be, when you create a new OAuth 2.0 Client ID, make sure to name it "auth2".
+  var CLIENT_ID = "693133513733-fg3r3s4t6q642fiqd9re0vklnu0pglm6.apps.googleusercontent.com";
+  var API_KEY = "AIzaSyDDsGsEjfXNWhGImPNCagIdOQ8WIEcsmf8";
+  var DISCOVERY_DOCS = [
+    "https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest",
+  ];
+  var SCOPES = "https://www.googleapis.com/auth/calendar.events";
 
   function handleClick() {
     gapi.load('client:auth2', () => {
@@ -27,41 +30,42 @@ const CreateEvent = () => {
         clientId: CLIENT_ID,
         discoveryDocs: DISCOVERY_DOCS,
         scope: SCOPES,
-      })
+      });
 
-      gapi.client.load('calendar', 'v3');
+      gapi.client.load("calendar", "v3");
 
-      gapi.auth2.getAuthInstance().signIn()
-      .then(() => {
-        console.log("hi")
-        var event = {
-          'summary': name,
-          'location': location,
-          'description': description,
-          'start': {
-            'dateTime': '2021-04-28T09:00:00-07:00',
-            'timeZone': 'America/Los_Angeles'
-          },
-          'end': {
-            'dateTime': '2021-04-28T17:00:00-07:00',
-            'timeZone': 'America/Los_Angeles'
-          }
-        }
+      gapi.auth2
+        .getAuthInstance()
+        .signIn()
+        .then(() => {
+          console.log("hi");
+          var event = {
+            summary: name,
+            location: location,
+            description: description,
+            start: {
+              dateTime: date + "T" + start + ":00",
+              timeZone: "America/New_York",
+            },
+            end: {
+              dateTime: date + "T" + end + ":00",
+              timeZone: "America/New_York",
+            },
+          };
 
-        var request = gapi.client.calendar.events.insert({
-          'calendarId': 'tlsa.webapp@gmail.com',
-          'resource': event
-        })
+          var request = gapi.client.calendar.events.insert({
+            calendarId: "tlsa.webapp@gmail.com",
+            resource: event,
+          });
 
-        request.execute(event => {
-          console.log(event);
-          window.open(event.htmlLink);
-        })
-        
-        /*
-            Uncomment the following block to get events
-        */
-        /*
+          /* Uncomment code to check events via Google Calendar site
+          request.execute((event) => {
+            console.log(event);
+            window.open(event.htmlLink);
+          });
+          */
+
+          /* Uncomment the following block to get events
         // get events
         gapi.client.calendar.events.list({
           'calendarId': 'primary',
@@ -104,7 +108,7 @@ const CreateEvent = () => {
         </Form.Group>
 
         <Form.Group as={Row} controlId="EventDate">
-        <Col sm={2}></Col>
+          <Col sm={2}></Col>
           <Form.Label column sm={2}>
             Date
           </Form.Label>
@@ -127,7 +131,7 @@ const CreateEvent = () => {
           <Col sm={6}>
             <Form.Control
               type="start-time"
-              placeholder="Start Time"
+              placeholder="i.e. 09:00 for 9:90 AM"
               value={start}
               onChange={e => setStart(e.target.value)}
             />
@@ -143,7 +147,7 @@ const CreateEvent = () => {
           <Col sm={6}>
             <Form.Control
               type="end-time"
-              placeholder="End Time"
+              placeholder="i.e. 13:30 for 1:30 PM"
               value={end}
               onChange={e => setEnd(e.target.value)}
             />
@@ -177,7 +181,7 @@ const CreateEvent = () => {
               as="textarea"
               type="description"
               placeholder="Event Description"
-              rows={3}
+              rows={5}
               value={description}
               onChange={e => setDescription(e.target.value)}
             />
