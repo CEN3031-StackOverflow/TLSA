@@ -6,10 +6,9 @@ const mongoose = require("mongoose");
 const app = express();
 
 //connect to the database
-mongoose.set("useFindAndModify", false);
+mongoose.set('useFindAndModify', false);
 
-mongoose
-  .connect(config.db.uri, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(config.db.uri, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log(`Database connected successfully`))
   .catch((err) => console.log(err));
 
@@ -27,7 +26,7 @@ app.use((req, res, next) => {
 
 app.use(bodyParser.json());
 
-app.use("/api", routes);
+app.use('/api', routes);
 
 app.use((err, req, res, next) => {
   console.log(err);
