@@ -58,12 +58,10 @@ const CreateEvent = () => {
             resource: event,
           });
 
-          /* Uncomment code to check events via Google Calendar site
           request.execute((event) => {
-            console.log(event);
-            window.open(event.htmlLink);
+            // console.log(event);
+            // window.open(event.htmlLink);
           });
-          */
 
           /* Uncomment the following block to get events
         // get events
