@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { Navbar, Nav } from "react-bootstrap";
 import LogoutButton from "./LogoutButton";
 import "bootstrap/dist/css/bootstrap.min.css";
