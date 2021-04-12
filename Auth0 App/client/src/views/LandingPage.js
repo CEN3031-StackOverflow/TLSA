@@ -7,7 +7,7 @@ const LandingPage = () => {
   return (
     <>
       <h1 className="landing-header">
-        Welcome to <br /> Thai-Laos Student <br /> Association
+        Welcome to <br /> Thai-Lao Student <br /> Association
       </h1>
       <div className="landing-logo">
         <Logo />
