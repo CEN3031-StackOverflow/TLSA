@@ -1,8 +1,8 @@
 /* Make sure this is only accessible to admins!!! */
 
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import AppBar from "../components/AppBar";
-import { Form, Button, Row, Col } from "react-bootstrap";
+import { Form, Row, Col } from "react-bootstrap";
 
 const CreateEvent = () => {
   const [name, setName] = useState("");
@@ -15,16 +15,16 @@ const CreateEvent = () => {
   /* Google Calendar API Add Event Tutorial: https://www.youtube.com/watch?v=zaRUq1siZZo */
 
   var gapi = window.gapi;
-  var CLIENT_ID =
-    "693133513733-l7kcttogcc3c2bkkt9m67v8kjrmfnvck.apps.googleusercontent.com";
-  var API_KEY = "AIzaSyCojPB4nfWrpOB9Bca4SnHGInatjYrwjjU";
+  // If need be, when you create a new OAuth 2.0 Client ID, make sure to name it "auth2".
+  var CLIENT_ID = "693133513733-fg3r3s4t6q642fiqd9re0vklnu0pglm6.apps.googleusercontent.com";
+  var API_KEY = "AIzaSyDDsGsEjfXNWhGImPNCagIdOQ8WIEcsmf8";
   var DISCOVERY_DOCS = [
     "https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest",
   ];
   var SCOPES = "https://www.googleapis.com/auth/calendar.events";
 
   function handleClick() {
-    gapi.load("client:auth2", () => {
+    gapi.load('client:auth2', () => {
       gapi.client.init({
         apiKey: API_KEY,
         clientId: CLIENT_ID,
@@ -44,12 +44,12 @@ const CreateEvent = () => {
             location: location,
             description: description,
             start: {
-              dateTime: "2021-04-28T09:00:00-07:00",
-              timeZone: "America/Los_Angeles",
+              dateTime: date + "T" + start + ":00",
+              timeZone: "America/New_York",
             },
             end: {
-              dateTime: "2021-04-28T17:00:00-07:00",
-              timeZone: "America/Los_Angeles",
+              dateTime: date + "T" + end + ":00",
+              timeZone: "America/New_York",
             },
           };
 
@@ -59,14 +59,11 @@ const CreateEvent = () => {
           });
 
           request.execute((event) => {
-            console.log(event);
-            window.open(event.htmlLink);
+            // console.log(event);
+            // window.open(event.htmlLink);
           });
 
-          /*
-            Uncomment the following block to get events
-        */
-          /*
+          /* Uncomment the following block to get events
         // get events
         gapi.client.calendar.events.list({
           'calendarId': 'primary',
@@ -80,8 +77,9 @@ const CreateEvent = () => {
           console.log('EVENTS: ', events)
         })
         */
-        });
-    });
+    
+      })
+    })
   }
 
   return (
@@ -92,6 +90,7 @@ const CreateEvent = () => {
 
       <Form>
         <Form.Group as={Row} controlId="EventName">
+          <Col sm={2}></Col>
           <Form.Label column sm={2}>
             Event Name
           </Form.Label>
@@ -100,13 +99,14 @@ const CreateEvent = () => {
               type="event-name"
               placeholder="Event Name"
               value={name}
-              onChange={(e) => setName(e.target.value)}
-            />
+              onChange={e => setName(e.target.value)}
+              />
           </Col>
+          <Col sm={2}></Col>
         </Form.Group>
 
         <Form.Group as={Row} controlId="EventDate">
-          {/* <Col sm={2}></Col> */}
+          <Col sm={2}></Col>
           <Form.Label column sm={2}>
             Date
           </Form.Label>
@@ -115,41 +115,46 @@ const CreateEvent = () => {
               type="date"
               placeholder="Date"
               value={date}
-              onChange={(e) => setDate(e.target.value)}
+              onChange={e => setDate(e.target.value)}
             />
           </Col>
+          <Col sm={2}></Col>
         </Form.Group>
 
         <Form.Group as={Row} controlId="StartTime">
+          <Col sm={2}></Col>
           <Form.Label column sm={2}>
             Start Time
           </Form.Label>
           <Col sm={6}>
             <Form.Control
               type="start-time"
-              placeholder="Start Time"
+              placeholder="i.e. 09:00 for 9:90 AM"
               value={start}
-              onChange={(e) => setStart(e.target.value)}
+              onChange={e => setStart(e.target.value)}
             />
           </Col>
-          <Col sm={2}></Col>
+          <Col sm={2}></Col>  
         </Form.Group>
 
         <Form.Group as={Row} controlId="EndTime">
+          <Col sm={2}></Col>
           <Form.Label column sm={2}>
             End Time
           </Form.Label>
           <Col sm={6}>
             <Form.Control
               type="end-time"
-              placeholder="End Time"
+              placeholder="i.e. 13:30 for 1:30 PM"
               value={end}
-              onChange={(e) => setEnd(e.target.value)}
+              onChange={e => setEnd(e.target.value)}
             />
           </Col>
+          <Col sm={2}></Col>
         </Form.Group>
 
         <Form.Group as={Row} controlId="Location">
+          <Col sm={2}></Col>
           <Form.Label column sm={2}>
             Location
           </Form.Label>
@@ -158,33 +163,33 @@ const CreateEvent = () => {
               type="location"
               placeholder="Location"
               value={location}
-              onChange={(e) => setLocation(e.target.value)}
+              onChange={e => setLocation(e.target.value)}
             />
           </Col>
+          <Col sm={2}></Col>
         </Form.Group>
 
         <Form.Group as={Row} controlId="Description">
+          <Col sm={2}></Col>
           <Form.Label column sm={2}>
             Description
           </Form.Label>
-          <Col sm={10}>
+          <Col sm={6}>
             <Form.Control
               as="textarea"
               type="description"
               placeholder="Event Description"
-              rows={3}
+              rows={5}
               value={description}
-              onChange={(e) => setDescription(e.target.value)}
+              onChange={e => setDescription(e.target.value)}
             />
           </Col>
+          <Col sm={2}></Col>
         </Form.Group>
       </Form>
 
       <div className="center">
-        <button className="btn" onClick={handleClick}>
-          {" "}
-          Create{" "}
-        </button>
+        <button className="btn" onClick={handleClick}> Create </button>
       </div>
     </>
   );
