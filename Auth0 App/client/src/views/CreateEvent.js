@@ -58,7 +58,20 @@ const CreateEvent = () => {
           });
 
           request.execute((event) => {
-            // console.log(event);
+            var raw = "{\n    \"googleId\": \"" + event.id + "\"\n}";
+
+            var requestOptions = {
+              method: 'POST',
+              body: raw,
+              redirect: 'follow'
+            };
+
+            fetch("http://localhost:5000/api/events/new", requestOptions)
+              .then(response => response.text())
+              .then(result => console.log(result))
+              .catch(error => console.log('error', error));
+              
+            // console.log(event.id);
             // window.open(event.htmlLink);
           });
 
