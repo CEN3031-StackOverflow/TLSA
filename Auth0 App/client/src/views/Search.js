@@ -1,8 +1,21 @@
-import React from "react";
+import React, { Component, useState } from "react";
 import AppBar from "../components/AppBar.js";
-import { Form, Col} from "react-bootstrap";
+import { Form, Col } from "react-bootstrap";
 
 const Search = () => {
+  const [name, setName] = useState("");
+  function searchUsers(searchName) {
+    var requestOptions = {
+      method: "GET",
+      redirect: "follow",
+    };
+
+    fetch("http://localhost:5000/api/users/name/" + searchName, requestOptions)
+      .then((response) => response.text())
+      .then((result) => console.log(result))
+      .catch((error) => console.log("error", error));
+  }
+
   return (
     <>
       <AppBar />
@@ -18,20 +31,23 @@ const Search = () => {
             <Form.Control
               id="inlineFormInputName"
               placeholder="Search for a Member"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
             />
           </Col>
 
           <Col xs="auto" className="my-1">
             <button
               className="btn-smaller"
-
-              // {*/button not linked to route */}
+              type="button"
+              onClick={() => searchUsers(name)}
             >
               Search
             </button>
           </Col>
           <Col xs="auto" className="my-1">
             <button
+              type="button"
               className="btn-smaller"
               // {*/button not linked to route */}
             >
