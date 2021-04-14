@@ -189,7 +189,7 @@ const CreateEvent = () => {
       </Form>
 
       <div className="center">
-        <button className="btn" onClick={handleClick}> Create </button>
+        <button className="btn-create" onClick={handleClick}> Create </button>
       </div>
     </>
   );
