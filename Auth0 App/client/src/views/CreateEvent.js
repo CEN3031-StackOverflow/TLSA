@@ -58,11 +58,13 @@ const CreateEvent = () => {
           });
 
           request.execute((event) => {
-            var raw = "{\n    \"googleId\": \"" + event.id + "\"\n}";
+            var raw = JSON.stringify({"googleId": event.id});
 
             var requestOptions = {
               method: 'POST',
               body: raw,
+              headers: {'Content-Type':'application/json'},
+              mode: 'cors',
               redirect: 'follow'
             };
 
