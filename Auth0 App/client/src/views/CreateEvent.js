@@ -23,6 +23,15 @@ const CreateEvent = () => {
   ];
   var SCOPES = "https://www.googleapis.com/auth/calendar.events";
 
+  function clear(){
+    setName("");
+    setDate("");
+    setStart("");
+    setEnd("");
+    setLocation("");
+    setDescription("");
+  }
+
   function handleClick() {
     gapi.load('client:auth2', () => {
       gapi.client.init({
@@ -72,9 +81,8 @@ const CreateEvent = () => {
               .then(response => response.text())
               .then(result => console.log(result))
               .catch(error => console.log('error', error));
-              
-            // console.log(event.id);
-            // window.open(event.htmlLink);
+
+            clear();
           });
 
           /* Uncomment the following block to get events
