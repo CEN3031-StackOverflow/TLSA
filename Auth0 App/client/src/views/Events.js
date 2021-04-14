@@ -32,6 +32,14 @@ const Events = () => {
           Load Updated Calendar
         </button>
 
+        <text> &emsp; &emsp; &emsp;</text>
+
+        <a href="/CheckIn">
+          <button className="btn-smaller">
+            Current Events
+          </button>
+        </a>
+      
         <h3> </h3>
 
         <div id="calendarEmbedWrapper">

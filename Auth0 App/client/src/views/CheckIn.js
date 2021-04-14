@@ -7,6 +7,9 @@ const CheckIn = () => {
     <div>
       <AppBar />
       <h1 style={{ textAlign: "center" }}>Current Events</h1>
+
+
+      
     </div>
   );
 };
