@@ -38,7 +38,6 @@ const CreateEvent = () => {
         .getAuthInstance()
         .signIn()
         .then(() => {
-          console.log("hi");
           var event = {
             summary: name,
             location: location,
@@ -59,7 +58,20 @@ const CreateEvent = () => {
           });
 
           request.execute((event) => {
-            // console.log(event);
+            var raw = "{\n    \"googleId\": \"" + event.id + "\"\n}";
+
+            var requestOptions = {
+              method: 'POST',
+              body: raw,
+              redirect: 'follow'
+            };
+
+            fetch("http://localhost:5000/api/events/new", requestOptions)
+              .then(response => response.text())
+              .then(result => console.log(result))
+              .catch(error => console.log('error', error));
+              
+            // console.log(event.id);
             // window.open(event.htmlLink);
           });
 
@@ -189,7 +201,7 @@ const CreateEvent = () => {
       </Form>
 
       <div className="center">
-        <button className="btn" onClick={handleClick}> Create </button>
+        <button className="btn-create" onClick={handleClick}> Create </button>
       </div>
     </>
   );

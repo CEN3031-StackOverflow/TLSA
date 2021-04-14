@@ -10,10 +10,17 @@ const LogoutButton = () => {
   } = useAuth0();
 
   return (
-    isAuthenticated && ( 
-      <button className = "btn-smaller" >
-      Log Out 
-      </button>
+    isAuthenticated && (
+      <>
+        <text>&emsp;</text>
+        <button
+          className="btn-smaller"
+          style={{ height: "38px" }}
+          onClick={() => logout()}
+        >
+          Log Out
+        </button>
+      </>
     )
   );
 };
