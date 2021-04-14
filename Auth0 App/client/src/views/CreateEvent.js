@@ -38,7 +38,6 @@ const CreateEvent = () => {
         .getAuthInstance()
         .signIn()
         .then(() => {
-          console.log("hi");
           var event = {
             summary: name,
             location: location,

@@ -18,10 +18,7 @@ const Events = () => {
       <h1 style={{ textAlign: "center" }}>Events Schedule</h1>
       <div>
         <a href="/CreateEvent">
-          <button
-            className="btn-smaller"
-            // {*/button not linked to route */}
-          >
+          <button className="btn-smaller">
             Create Event
           </button>
         </a>
