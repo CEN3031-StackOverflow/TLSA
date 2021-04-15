@@ -3,8 +3,10 @@
 import React, { useState } from 'react';
 import AppBar from "../components/AppBar";
 import { Form, Row, Col } from "react-bootstrap";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const CreateEvent = () => {
+  const { user, isAuthenticated } = useAuth0();
   const [name, setName] = useState("");
   const [date, setDate] = useState("");
   const [start, setStart] = useState("");
@@ -105,6 +107,7 @@ const CreateEvent = () => {
   }
 
   return (
+    isAuthenticated && (
     <>
       <h1 style={{ textAlign: "center" }}> Create Event </h1>
       <br />
@@ -150,7 +153,7 @@ const CreateEvent = () => {
           <Col sm={6}>
             <Form.Control
               type="start-time"
-              placeholder="i.e. 09:00 for 9:90 AM"
+              placeholder="i.e. 09:00 for 9:00 AM"
               value={start}
               onChange={e => setStart(e.target.value)}
             />
@@ -211,16 +214,18 @@ const CreateEvent = () => {
 
       <div className="center">
         <button className="btn-create" onClick={handleClick}> Create </button>
+        <b/>
       </div>
 
       <h1> </h1>
-
+      
       <h6 className="create-event-disclaimer"
           style={{color: "#a9a9a9"}}>
             Log into tlsa.webapp@gmail.com via pop-up.
       </h6>
       
     </>
+    )
   );
 };
 
