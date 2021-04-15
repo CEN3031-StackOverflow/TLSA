@@ -5,7 +5,6 @@ import AppBar from "../components/AppBar.js";
 const CheckIn = () => {
   return (
     <div>
-      <AppBar />
       <h1 style={{ textAlign: "center" }}>Current Events</h1>
 
 

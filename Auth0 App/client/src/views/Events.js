@@ -43,7 +43,6 @@ const Events = () => {
           <div className="iframe-container">
             <iframe id="calendarEmbed" width="1450vw" height="700vh" />
           </div>
-          <div id="calendarEmbedBlocker"></div>
         </div>
       </div>
     </div>
