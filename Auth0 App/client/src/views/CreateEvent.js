@@ -3,8 +3,10 @@
 import React, { useState } from 'react';
 import AppBar from "../components/AppBar";
 import { Form, Row, Col } from "react-bootstrap";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const CreateEvent = () => {
+  const { user, isAuthenticated } = useAuth0();
   const [name, setName] = useState("");
   const [date, setDate] = useState("");
   const [start, setStart] = useState("");
@@ -23,6 +25,15 @@ const CreateEvent = () => {
   ];
   var SCOPES = "https://www.googleapis.com/auth/calendar.events";
 
+  function clear(){
+    setName("");
+    setDate("");
+    setStart("");
+    setEnd("");
+    setLocation("");
+    setDescription("");
+  }
+
   function handleClick() {
     gapi.load('client:auth2', () => {
       gapi.client.init({
@@ -38,7 +49,6 @@ const CreateEvent = () => {
         .getAuthInstance()
         .signIn()
         .then(() => {
-          console.log("hi");
           var event = {
             summary: name,
             location: location,
@@ -59,8 +69,22 @@ const CreateEvent = () => {
           });
 
           request.execute((event) => {
-            // console.log(event);
-            // window.open(event.htmlLink);
+            var raw = JSON.stringify({"googleId": event.id});
+
+            var requestOptions = {
+              method: 'POST',
+              body: raw,
+              headers: {'Content-Type':'application/json'},
+              mode: 'cors',
+              redirect: 'follow'
+            };
+
+            fetch("http://localhost:5000/api/events/new", requestOptions)
+              .then(response => response.text())
+              .then(result => console.log(result))
+              .catch(error => console.log('error', error));
+
+            clear();
           });
 
           /* Uncomment the following block to get events
@@ -83,8 +107,8 @@ const CreateEvent = () => {
   }
 
   return (
+    isAuthenticated && (
     <>
-      <AppBar />
       <h1 style={{ textAlign: "center" }}> Create Event </h1>
       <br />
 
@@ -129,7 +153,7 @@ const CreateEvent = () => {
           <Col sm={6}>
             <Form.Control
               type="start-time"
-              placeholder="i.e. 09:00 for 9:90 AM"
+              placeholder="i.e. 09:00 for 9:00 AM"
               value={start}
               onChange={e => setStart(e.target.value)}
             />
@@ -189,9 +213,19 @@ const CreateEvent = () => {
       </Form>
 
       <div className="center">
-        <button className="btn" onClick={handleClick}> Create </button>
+        <button className="btn-create" onClick={handleClick}> Create </button>
+        <b/>
       </div>
+
+      <h1> </h1>
+      
+      <h6 className="create-event-disclaimer"
+          style={{color: "#a9a9a9"}}>
+            Log into tlsa.webapp@gmail.com via pop-up.
+      </h6>
+      
     </>
+    )
   );
 };
 

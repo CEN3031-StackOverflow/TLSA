@@ -1,6 +1,5 @@
 {
     "name": "tlsa-server",
-    "version": "0.5",
     "scripts": {
         "start": "node server.js"
     },

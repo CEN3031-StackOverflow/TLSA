@@ -30,6 +30,25 @@ body {
   font-size: 30px;
 }
 
+.create-event-disclaimer{
+  left: 0;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  font-size: 16px;
+}
+
+.btn-create{
+  color: #151C48;
+  background-color: #f4ba00;
+  border-radius: 15px;
+  padding: 6px;
+  font-family: Montserrat;
+  font-weight: 700;
+  text-align: center;
+  font-size: 26px;
+}
+
 .btn-smaller{
   color: #151C48;
   background-color: #f4ba00;
@@ -57,14 +76,14 @@ body {
   line-height: 75px;
   text-align: left;
   position: absolute;
-  top: 18vh;
+  top: 25vh;
   left: 48vw;
   padding: 0vw 10vw 0vw 0vw
 }
 
 .landing-logo img{
   position:absolute;
-  top: 18vh;
+  top: 25vh;
   right: 60vw;
   width: 250px;
 }

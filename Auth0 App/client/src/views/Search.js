@@ -1,11 +1,14 @@
 import React from "react";
 import AppBar from "../components/AppBar.js";
+import { useAuth0 } from "@auth0/auth0-react";
 import { Form, Col} from "react-bootstrap";
 
 const Search = () => {
+  const { user, isAuthenticated } = useAuth0();
+
   return (
+    isAuthenticated && (
     <>
-      <AppBar />
       <h1 style={{ textAlign: "center" }}>Search</h1>
       <br />
 
@@ -41,6 +44,7 @@ const Search = () => {
         </Form.Row>
       </Form>
     </>
+    )
   );
 };
 
