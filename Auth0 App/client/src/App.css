@@ -30,15 +30,25 @@ body {
   font-size: 30px;
 }
 
+.create-event-disclaimer{
+  left: 0;
+  line-height: 200px;
+  margin-top: -100px;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  font-size: 16px;
+}
+
 .btn-create{
   color: #151C48;
   background-color: #f4ba00;
   border-radius: 15px;
-  padding: 8px;
+  padding: 6px;
   font-family: Montserrat;
   font-weight: 700;
   text-align: center;
-  font-size: 28px;
+  font-size: 26px;
 }
 
 .btn-smaller{

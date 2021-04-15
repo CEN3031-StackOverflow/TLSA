@@ -213,6 +213,14 @@ const CreateEvent = () => {
       <div className="center">
         <button className="btn-create" onClick={handleClick}> Create </button>
       </div>
+
+      <h1> </h1>
+
+      <h6 className="create-event-disclaimer"
+          style={{color: "#a9a9a9"}}>
+            Log into tlsa.webapp@gmail.com via pop-up.
+      </h6>
+      
     </>
   );
 };
