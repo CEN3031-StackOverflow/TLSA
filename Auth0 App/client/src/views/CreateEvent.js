@@ -106,7 +106,6 @@ const CreateEvent = () => {
 
   return (
     <>
-      <AppBar />
       <h1 style={{ textAlign: "center" }}> Create Event </h1>
       <br />
 

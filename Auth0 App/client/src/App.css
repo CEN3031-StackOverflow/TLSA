@@ -78,14 +78,14 @@ body {
   line-height: 75px;
   text-align: left;
   position: absolute;
-  top: 18vh;
+  top: 25vh;
   left: 48vw;
   padding: 0vw 10vw 0vw 0vw
 }
 
 .landing-logo img{
   position:absolute;
-  top: 18vh;
+  top: 25vh;
   right: 60vw;
   width: 250px;
 }

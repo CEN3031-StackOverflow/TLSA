@@ -12,6 +12,7 @@ import LandingPage from "./views/LandingPage";
 import MyAccount from "./views/MyAccount";
 import Search from "./views/Search";
 import CheckIn from "./views/CheckIn";
+import AppBar from "./components/AppBar";
 import { useAuth0 } from "@auth0/auth0-react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
@@ -24,6 +25,7 @@ function App() {
   return (
     <>
       {/* Auth0 Setup from https://www.youtube.com/watch?v=MqczHS3Z2bc&list=LL&index=10 */}
+      <AppBar />
       <Router>
         <Route exact path="/">
           <Redirect to="/LandingPage" />{" "}

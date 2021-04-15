@@ -7,7 +7,6 @@ import { Form, Button, Row, Col } from "react-bootstrap";
 const MyAccount = () => {
   return (
     <>
-      <AppBar />
       <h1 style={{ textAlign: "center" }}>My Account</h1>
       <Profile />
 

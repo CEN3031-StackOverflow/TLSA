@@ -5,7 +5,6 @@ import { Form, Col} from "react-bootstrap";
 const Search = () => {
   return (
     <>
-      <AppBar />
       <h1 style={{ textAlign: "center" }}>Search</h1>
       <br />
 
