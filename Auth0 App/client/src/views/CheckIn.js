@@ -14,7 +14,7 @@ const CheckIn = () => {
     "https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest",
   ];
   var SCOPES = "https://www.googleapis.com/auth/calendar.events";
-  var events = [{id: "not rendering fast enough :("}];
+  var events = [{id: "not getting events list fast enough :("}];
 
   function loadCurrentEvents(){
     gapi.load('client:auth2', () => {
@@ -53,7 +53,7 @@ const CheckIn = () => {
         <b/>
         <h1></h1>
         <ul>
-          {/* loadCurrentEvents() is rendering too late... */}
+          {/* loadCurrentEvents() is completing too late... */}
           {
             events.map(function(event){
               console.log(event.id);
