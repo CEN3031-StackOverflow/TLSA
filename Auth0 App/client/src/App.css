@@ -7,6 +7,7 @@
   /* background-color: #151C48; */
   font-family: Montserrat;
   color: #f4ba00;
+  font-size: 20px;
 }
 
 body {
@@ -58,6 +59,29 @@ body {
   font-weight: 700;
   text-align: center;
   font-size: 16px;
+}
+
+.event-list{
+  font-size: 30px;
+  margin-left: 16vw;
+  margin-right: 16vw;
+  margin-top: 5vh;
+  border: 5x;
+  border-radius: 15px;
+  border-style: solid;
+  border-color: #f4ba00;
+  padding: 40px;
+}
+
+.checkin-btn-smaller{
+  color: #151C48;
+  background-color: #f4ba00;
+  border-radius: 15px;
+  padding: 8px;
+  font-family: Montserrat;
+  font-weight: 700;
+  text-align: center;
+  font-size: 18px;
 }
 
 .login-btn-position {

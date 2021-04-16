@@ -54,10 +54,15 @@ const CheckIn = () => {
             {
               events.map(function(event){
                 console.log(event.id);
-                return  <div>
-                          <h6>{event.id}</h6>
-                          <button>check in</button>
-                        </div>
+                return  <>
+                          <h1></h1>
+                          <div className="event-list">
+                            {event.id}
+                            <button className="checkin-btn-smaller" style={{float: "right"}}>check in</button>
+                          </div>
+                          <h1></h1>
+                          <b/>
+                        </>
               })
             }
           </ul>
