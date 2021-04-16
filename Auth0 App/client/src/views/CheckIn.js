@@ -16,6 +16,10 @@ const CheckIn = () => {
   ];
   var SCOPES = "https://www.googleapis.com/auth/calendar.events";
 
+  function handleClick(){
+    
+  }
+
   async function loadCurrentEvents(){
     gapi.load('client:auth2', () => {
       gapi.client.init({
@@ -58,7 +62,11 @@ const CheckIn = () => {
                           <h1></h1>
                           <div className="event-list">
                             {event.id}
-                            <button className="checkin-btn-smaller" style={{float: "right"}}>check in</button>
+                            <button
+                              className="checkin-btn-smaller"
+                              style={{float: "right"}}
+                              onClick={handleClick}
+                            >Check In</button>
                           </div>
                           <h1></h1>
                           <b/>

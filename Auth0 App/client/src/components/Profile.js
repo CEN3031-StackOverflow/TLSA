@@ -10,6 +10,7 @@ const Profile = () => {
       <div style={{ textAlign: "center"}}>
         <img src={user.picture} alt={user.name} />
         <h2>{user.email}</h2>
+        {JSON.stringify(user)}
         {/* {JSON.stringify(user, null, 2)} */}
       </div>
     )
