@@ -1,9 +1,12 @@
 import React from "react";
 import { useHistory } from "react-router";
 import AppBar from "../components/AppBar.js";
+import { useAuth0 } from "@auth0/auth0-react";
 //import Logo from '../components/Logo.js';
 
 const Events = () => {
+  const { user, isAuthenticated } = useAuth0();
+
   const showCal = () => {
     var iframe = document.getElementById("calendarEmbed");
     var email = "tlsa.webapp@gmail.com";
@@ -13,10 +16,11 @@ const Events = () => {
     }
   };
   return (
+    isAuthenticated && (
     <div>
-      <AppBar />
       <h1 style={{ textAlign: "center" }}>Events Schedule</h1>
       <div>
+        <h6></h6>
         <a href="/CreateEvent">
           <button className="btn-smaller">
             Create Event
@@ -43,10 +47,10 @@ const Events = () => {
           <div className="iframe-container">
             <iframe id="calendarEmbed" width="1450vw" height="700vh" />
           </div>
-          <div id="calendarEmbedBlocker"></div>
         </div>
       </div>
     </div>
+    )
   );
 };
 

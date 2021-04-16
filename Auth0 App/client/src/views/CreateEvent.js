@@ -3,8 +3,10 @@
 import React, { useState } from 'react';
 import AppBar from "../components/AppBar";
 import { Form, Row, Col } from "react-bootstrap";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const CreateEvent = () => {
+  const { user, isAuthenticated } = useAuth0();
   const [name, setName] = useState("");
   const [date, setDate] = useState("");
   const [start, setStart] = useState("");
@@ -22,6 +24,15 @@ const CreateEvent = () => {
     "https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest",
   ];
   var SCOPES = "https://www.googleapis.com/auth/calendar.events";
+
+  function clear(){
+    setName("");
+    setDate("");
+    setStart("");
+    setEnd("");
+    setLocation("");
+    setDescription("");
+  }
 
   function handleClick() {
     gapi.load('client:auth2', () => {
@@ -58,11 +69,13 @@ const CreateEvent = () => {
           });
 
           request.execute((event) => {
-            var raw = "{\n    \"googleId\": \"" + event.id + "\"\n}";
+            var raw = JSON.stringify({"googleId": event.id});
 
             var requestOptions = {
               method: 'POST',
               body: raw,
+              headers: {'Content-Type':'application/json'},
+              mode: 'cors',
               redirect: 'follow'
             };
 
@@ -70,9 +83,8 @@ const CreateEvent = () => {
               .then(response => response.text())
               .then(result => console.log(result))
               .catch(error => console.log('error', error));
-              
-            // console.log(event.id);
-            // window.open(event.htmlLink);
+
+            clear();
           });
 
           /* Uncomment the following block to get events
@@ -95,8 +107,8 @@ const CreateEvent = () => {
   }
 
   return (
+    isAuthenticated && (
     <>
-      <AppBar />
       <h1 style={{ textAlign: "center" }}> Create Event </h1>
       <br />
 
@@ -141,7 +153,7 @@ const CreateEvent = () => {
           <Col sm={6}>
             <Form.Control
               type="start-time"
-              placeholder="i.e. 09:00 for 9:90 AM"
+              placeholder="i.e. 09:00 for 9:00 AM"
               value={start}
               onChange={e => setStart(e.target.value)}
             />
@@ -202,8 +214,18 @@ const CreateEvent = () => {
 
       <div className="center">
         <button className="btn-create" onClick={handleClick}> Create </button>
+        <b/>
       </div>
+
+      <h1> </h1>
+      
+      <h6 className="create-event-disclaimer"
+          style={{color: "#a9a9a9"}}>
+            Log into tlsa.webapp@gmail.com via pop-up.
+      </h6>
+      
     </>
+    )
   );
 };
 
