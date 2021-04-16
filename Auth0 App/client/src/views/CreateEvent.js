@@ -97,6 +97,7 @@ const CreateEvent = () => {
             const events = response.result.items
             console.log('EVENTS: ', events)
             console.log((new Date()).toISOString())
+            alert("Event successfully created!")
           })
       })
     })
