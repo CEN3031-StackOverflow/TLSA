@@ -14,6 +14,7 @@ const CheckIn = () => {
     "https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest",
   ];
   var SCOPES = "https://www.googleapis.com/auth/calendar.events";
+  var events = [{id: "not rendering fast enough :("}];
 
   function loadCurrentEvents(){
     gapi.load('client:auth2', () => {
@@ -33,22 +34,36 @@ const CheckIn = () => {
           'singleEvents': true,
           'orderBy': 'startTime'
         }).then(response => {
-          const events = response.result.items
+          events = response.result.items
           console.log('EVENTS: ', events)
         })
       })
     })
   }
-       
+  
+  (async () => {
+    await loadCurrentEvents();
+
+  })();
 
   return (
     isAuthenticated && (
       <div>
         <h1 style={{ textAlign: "center" }}>Current Events</h1>
         <b/>
-        <h1></h1> 
-        <button onClick={loadCurrentEvents}>click</button>
-        
+        <h1></h1>
+        <ul>
+          {/* loadCurrentEvents() is rendering too late... */}
+          {
+            events.map(function(event){
+              console.log(event.id);
+              return  <div>
+                        <h6>{event.id}</h6>
+                        <button>check in</button>
+                      </div>
+            })
+          }
+        </ul>
       </div>
     )
   );
