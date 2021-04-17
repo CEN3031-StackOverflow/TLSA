@@ -41,14 +41,14 @@ const Search = () => {
       <>
       <h1 style={{ textAlign: "center" }}>Search</h1>
       <br />
-      <Form style={{  marginLeft: "16vw", marginRight: "16vw"}}>
+      <Form style={{  marginLeft: "23vw"}}>
         <Form.Row className="align-items-center">
             <Form.Control
               id="inlineFormInputName"
               placeholder="Search for a Member"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              style={{width: "50vw"}}
+              style={{width: "40vw", marginRight: "50px"}}
             />
             <button
               className="btn-smaller"
