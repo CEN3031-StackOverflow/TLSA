@@ -18,15 +18,15 @@ const Events = () => {
   return (
     isAuthenticated && (
     <div>
-      <h1 style={{ textAlign: "center" }}>Events Schedule</h1>
-      <div>
-        <a href="/CreateEvent">
+      <h1 style={{ textAlign: "center", marginBottom: "20px" }}>Events Schedule</h1>
+      <div style={{marginLeft: "20px", marginRight: "20px"}}>
+        <a href="/CheckIn">
           <button className="btn-smaller">
-            Create Event
+            Current Events
           </button>
         </a>
 
-        <text> &emsp; &emsp; &emsp;</text>
+        <text> &emsp; </text>
 
         <button className="btn-smaller" onClick={showCal}>
           Load Updated Calendar
@@ -34,17 +34,17 @@ const Events = () => {
 
         <text> &emsp; &emsp; &emsp;</text>
 
-        <a href="/CheckIn">
+        <a href="/CreateEvent" style={{float: "right"}}>
           <button className="btn-smaller">
-            Current Events
+            Create Event
           </button>
         </a>
       
         <h3> </h3>
 
-        <div id="calendarEmbedWrapper">
-          <div className="iframe-container">
-            <iframe id="calendarEmbed" width="1450vw" height="700vh" />
+        <div id="calendarEmbedWrapper" >
+          <div className="iframe-container"style={{borderRadius: "5px"}}>
+            <iframe id="calendarEmbed" width="1450vw" height="700vh"/>
           </div>
         </div>
       </div>
