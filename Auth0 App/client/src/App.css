@@ -66,7 +66,7 @@ body {
   margin-left: 16vw;
   margin-right: 16vw;
   margin-top: 5vh;
-  border: 5x;
+  border: 3px;
   border-radius: 15px;
   border-style: solid;
   border-color: #f4ba00;
@@ -81,7 +81,7 @@ body {
   font-family: Montserrat;
   font-weight: 700;
   text-align: center;
-  font-size: 18px;
+  font-size: 20px;
 }
 
 .login-btn-position {
