@@ -39,85 +39,50 @@ const Search = () => {
   return (
     isAuthenticated && (
       <>
-        <h1 style={{ textAlign: "center" }}>Search</h1>
-        <br />
+      <h1 style={{ textAlign: "center" }}>Search</h1>
+      <br />
+      <Form style={{  marginLeft: "23vw"}}>
+        <Form.Row className="align-items-center">
+            <Form.Control
+              id="inlineFormInputName"
+              placeholder="Search for a Member"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              style={{width: "40vw", marginRight: "50px"}}
+            />
+            <button
+              className="btn-smaller"
+              style={{fontSize: "19px", padding: "9px"}}
+              type="button"
+              onClick={() => searchUsers(name)}
+            >
+              Search
+            </button>
+        </Form.Row>
+      </Form>
 
-        <Form>
-          <Form.Row className="align-items-center">
-            <Col sm={11} className="my-1">
-              <Form.Label htmlFor="inlineFormInputName" srOnly>
-                Name
-              </Form.Label>
-
-              <Form.Control
-                id="inlineFormInputName"
-                placeholder="Search for a Member"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-              />
-            </Col>
-
-            <Col xs="auto" className="my-1">
+      {results &&
+        results.map((result, idx) => {
+          return (
+            <div className="event-list">
+              {result.given_name + " " + result.family_name + ", "}
+              <text>&emsp;</text>
+              {result.points}
               <button
-                className="btn-smaller"
+                style={{
+                  display: "block",
+                  float: "right",
+                }}
                 type="button"
-                onClick={() => searchUsers(name)}
+                className="checkin-btn-smaller"
+                onClick={() => pointReset(result._id)}
               >
-                Search
+                Reset Points
               </button>
-            </Col>
-            <Col xs="auto" className="my-1"></Col>
-          </Form.Row>
-        </Form>
-        <br />
-
-        {results &&
-          results.map((result, idx) => {
-            return (
-              <>
-                <Container
-                  className="results"
-                  style={{ backgroundColor: "white" }}
-                  fluid
-                >
-                  <Row>
-                    <Col>
-                      <h3
-                        style={{ display: "inline", color: "#151c48" }}
-                        id={`person${idx}`}
-                      >
-                        {result.given_name}
-                      </h3>
-                      <h4
-                        style={{
-                          display: "inline",
-                          float: "right",
-                          color: "#151c48",
-                        }}
-                        id={`points${idx}`}
-                      >
-                        {result.points}
-                      </h4>
-                      <br />
-                      <button
-                        style={{
-                          display: "block",
-                          float: "right",
-                        }}
-                        type="button"
-                        className="btn-smaller"
-                        onClick={() => pointReset(result._id)}
-                      >
-                        Reset Points
-                      </button>
-                    </Col>
-                  </Row>
-                </Container>
-                <br />
-              </>
-            );
-          })}
-      </>
+            </div>
+          );
+        })}
+    </>
     )
   );
 };
