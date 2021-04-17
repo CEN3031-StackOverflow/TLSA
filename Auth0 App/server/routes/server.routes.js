@@ -40,15 +40,16 @@ router.post('/users/:id/reset', (req, res, next) => {
 });
 
 router.post('/events/new', (req, res, next) => {
-    console.log(req.body.googleId);
-    var newEvent = new events({ googleId: req.body.googleId, attending: [] });
-    newEvent.save()
-        .then(data => res.json(data))
-        .catch(next)
+    if(req.body.googleId){
+        var newEvent = new events({ googleId: req.body.googleId, attending: [] });
+        newEvent.save()
+            .then(data => res.json(data))
+            .catch(next)
+    }
 });
 
 router.post('/events/attend', (req, res, next) => {
-    events.findOneAndUpdate({ googleId: req.body.googleId }, { $addToSet: { attending: req.body.userId } })
+    events.updateOne({ googleId: req.body.googleId }, { $addToSet: { attending: req.body.userId } })
         .then(data => res.json(data))
         .catch(next)
 })

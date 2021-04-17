@@ -20,7 +20,6 @@ const Events = () => {
     <div>
       <h1 style={{ textAlign: "center" }}>Events Schedule</h1>
       <div>
-        <h6></h6>
         <a href="/CreateEvent">
           <button className="btn-smaller">
             Create Event

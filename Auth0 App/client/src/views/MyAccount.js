@@ -7,8 +7,9 @@ import { Form, Button, Row, Col } from "react-bootstrap";
 
 const MyAccount = () => {
   const { user, isAuthenticated } = useAuth0();
-  
+
   return (
+    isAuthenticated && (
     <>
       <h1 style={{ textAlign: "center" }}>My Account</h1>
       <Profile />
@@ -38,6 +39,7 @@ const MyAccount = () => {
         </Form>
       </div>
     </>
+    )
   );
 };
 
