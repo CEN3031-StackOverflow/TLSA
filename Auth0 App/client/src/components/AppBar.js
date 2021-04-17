@@ -11,12 +11,14 @@ const AppBar = (props) => {
     isAuthenticated && (
       <>
         <Navbar collapseOnSelect expand="lg" bg="#151C48" variant="dark">
-          <img
-            src="../../tlsa-logo.jpg"
-            height="70"
-            className="d-inline-block align-top"
-            alt="TLSA logo"
-          />
+          <a href="/LandingPage">
+            <img
+              src="../../tlsa-logo.jpg"
+              height="70"
+              className="d-inline-block align-top"
+              alt="TLSA logo"
+            />
+          </a>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="mr-auto"></Nav>

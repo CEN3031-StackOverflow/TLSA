@@ -70,7 +70,10 @@ body {
   border-radius: 15px;
   border-style: solid;
   border-color: #f4ba00;
-  padding: 40px;
+  padding-right: 40px;
+  padding-left: 40px;
+  padding-top: 28px;
+  padding-bottom: 28px;
 }
 
 .checkin-btn-smaller{
