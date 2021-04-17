@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap");
 
 * {
   margin: 0;
@@ -12,7 +12,7 @@
 
 body {
   padding: 2rem;
-  background-color: #151C48;
+  background-color: #151c48;
 }
 
 .body-other {
@@ -20,8 +20,8 @@ body {
   background-color: white;
 }
 
-.btn{
-  color: #151C48;
+.btn {
+  color: #151c48;
   background-color: #f4ba00;
   border-radius: 15px;
   padding: 15px;
@@ -31,7 +31,7 @@ body {
   font-size: 30px;
 }
 
-.create-event-disclaimer{
+.create-event-disclaimer {
   left: 0;
   position: absolute;
   text-align: center;
@@ -39,8 +39,8 @@ body {
   font-size: 16px;
 }
 
-.btn-create{
-  color: #151C48;
+.btn-create {
+  color: #151c48;
   background-color: #f4ba00;
   border-radius: 15px;
   padding: 6px;
@@ -50,8 +50,8 @@ body {
   font-size: 26px;
 }
 
-.btn-smaller{
-  color: #151C48;
+.btn-smaller {
+  color: #151c48;
   background-color: #f4ba00;
   border-radius: 15px;
   padding: 5px;
@@ -89,7 +89,7 @@ body {
   top: 75vh; /* vh = viewport height, aka window height*/
   left: 50%;
   -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%); 
+  transform: translate(-50%, -50%);
 }
 
 .landing-header {
@@ -102,11 +102,11 @@ body {
   position: absolute;
   top: 25vh;
   left: 48vw;
-  padding: 0vw 10vw 0vw 0vw
+  padding: 0vw 10vw 0vw 0vw;
 }
 
-.landing-logo img{
-  position:absolute;
+.landing-logo img {
+  position: absolute;
   top: 25vh;
   right: 60vw;
   width: 250px;
@@ -124,31 +124,32 @@ body {
 }
 
 .calendarEmbedWrapper {
-    width: 80%;
-    min-height: 300px;
-    margin-left: 10%;
-    position: relative;
+  width: 80%;
+  min-height: 300px;
+  margin-left: 10%;
+  position: relative;
 }
-.calendarEmbed,.calendarEmbedBlocker {
-    width: 100%;
-    height: 100%;
-    position: absolute;
+.calendarEmbed,
+.calendarEmbedBlocker {
+  width: 100%;
+  height: 100%;
+  position: absolute;
 }
 .calendarEmbedBlocker {
-    background-color: #e15151;
+  background-color: #e15151;
 }
 .calendarEmbedBlocker p {
-    width: 50%;
-    margin-left: 25%;
-    margin-top: 19%;
-    text-align: center;
-    font-size: x-large;
+  width: 50%;
+  margin-left: 25%;
+  margin-top: 19%;
+  text-align: center;
+  font-size: x-large;
 }
 
 .nav-menu {
-    font-family: Montserrat;
-    color: #f4ba00;
-    font-size: 25px;
+  font-family: Montserrat;
+  color: #f4ba00;
+  font-size: 25px;
 }
 
 .iframe-container {
@@ -159,10 +160,18 @@ body {
 }
 
 .iframe-container iframe {
-   border: 0;
-   height: 100%;
-   left: 0;
-   position: absolute;
-   top: 0;
-   width: 100%;
+  border: 0;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.results {
+  border: 1px solid #151c48;
+  box-sizing: border-box;
+  padding-bottom: 5px;
+  border-radius: 15px;
+  padding-top: 5px;
 }
