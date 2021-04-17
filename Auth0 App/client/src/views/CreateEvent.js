@@ -82,23 +82,11 @@ const CreateEvent = () => {
             fetch("http://localhost:5000/api/events/new", requestOptions)
               .then(response => response.text())
               .then(result => console.log(result))
-              .catch(error => console.log('error', error));
+              .catch(error => console.log('error', error))
+              .then(alert("Event successfully created!"));
 
             clear();
           });
-          
-          gapi.client.calendar.events.list({
-            'calendarId': 'tlsa.webapp@gmail.com',
-            'timeMin': (new Date()).toISOString(),
-            'showDeleted': false,
-            'singleEvents': true,
-            'orderBy': 'startTime'
-          }).then(response => {
-            const events = response.result.items
-            console.log('EVENTS: ', events)
-            console.log((new Date()).toISOString())
-            alert("Event successfully created!")
-          })
       })
     })
   }

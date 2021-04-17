@@ -66,11 +66,15 @@ const CheckIn = () => {
         scope: SCOPES,
       });
 
+      var timeMin = new Date();
+      var timeMax = new Date();
+      timeMax.setSeconds(timeMax.getSeconds() + 10);
+
       gapi.client.load("calendar", "v3").then(() => {
         gapi.client.calendar.events.list({
           'calendarId': 'tlsa.webapp@gmail.com',
-          'timeMin': (new Date()).toISOString(),
-          // 'timeMax': (new Date()).toISOString(),
+          'timeMin': (timeMin).toISOString(),
+          'timeMax': (timeMax).toISOString(),
           'showDeleted': false,
           'singleEvents': true,
           'orderBy': 'startTime'
@@ -79,6 +83,7 @@ const CheckIn = () => {
           console.log('EVENTS: ', events)
           setLoaded(true);
         })
+        .then(console.log((new Date()).toISOString()))
       })
     })
     
