@@ -1,5 +1,17 @@
 {
-  "dependencies": {
-    "gapi": "0.0.3"
-  }
+    "name": "tlsa-server",
+    "scripts": {
+        "start": "node server.js",
+        "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build"
+    },
+    "dependencies": {
+        "body-parser": "1.19.0",
+        "express": "^4.17.1",
+        "mongoose": "^5.12.3",
+        "morgan": "^1.10.0",
+        "node": "^15.12.0"
+    },
+    "engines": {
+        "node": "15.12.0"
+    }
 }
