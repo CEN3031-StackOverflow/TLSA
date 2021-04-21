@@ -17,7 +17,7 @@ const Profile = () => {
       redirect: 'follow'
     };
     
-    fetch("http://localhost:5000/api/users/" + id, requestOptions)
+    fetch("/api/users/" + id, requestOptions)
     .then(response => response.json())
     .then((result) => { setPts(result.points);
                         setGivenName(result.given_name);
