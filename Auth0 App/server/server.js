@@ -3,12 +3,13 @@ const bodyParser = require("body-parser");
 const routes = require("./routes/server.routes");
 const config = require("./config/config");
 const mongoose = require("mongoose");
+const path = require("path");
 const app = express();
 
 //connect to the database
 mongoose.set('useFindAndModify', false);
 
-mongoose.connect(config.db.uri, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(process.env.MONGODB_URI || config.db.uri, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log(`Database connected successfully`))
   .catch((err) => console.log(err));
 
@@ -35,6 +36,12 @@ app.use((err, req, res, next) => {
 
 app.use((req, res, next) => {
   res.send("TEST");
+});
+
+app.use(express.static(path.join(__dirname, "client", "build")));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "client", "build", "index.html"));
 });
 
 // Use env port or default
